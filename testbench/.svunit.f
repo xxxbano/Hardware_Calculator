@@ -1,0 +1,9 @@
++incdir+/autofs/fs1.ece/fs1.eecg.roman/xia/Develop/vlab/Hardware_Calculator/testbench
++incdir+/autofs/fs1.ece/fs1.eecg.roman/xia/Mybin/svunit-code/svunit_base
++incdir+/autofs/fs1.ece/fs1.eecg.roman/xia/Mybin/svunit-code/svunit_base/uvm-mock
+/autofs/fs1.ece/fs1.eecg.roman/xia/Mybin/svunit-code/svunit_base/svunit_pkg.sv
+/autofs/fs1.ece/fs1.eecg.roman/xia/Develop/vlab/Hardware_Calculator/testbench/./calculator_unit_test.sv
+/autofs/fs1.ece/fs1.eecg.roman/xia/Develop/vlab/Hardware_Calculator/testbench/./LIFO_unit_test.sv
++incdir+/autofs/fs1.ece/fs1.eecg.roman/xia/Develop/vlab/Hardware_Calculator/testbench/.
+.__testsuite.sv
+.testrunner.sv

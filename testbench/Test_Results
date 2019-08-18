@@ -1,0 +1,89 @@
+SVUNIT: Output File: ./.__testsuite.sv
+SVUNIT: Creating class __testsuite:
+SVUNIT: Creating instances for:
+SVUNIT:    calculator_unit_test
+SVUNIT:    LIFO_unit_test
+SVUNIT: Output File: testrunner.sv
+SVUNIT: Creating testrunner testrunner:
+SVUNIT: Creating instances for:
+SVUNIT:   __testsuite
+cd .; vlib work; vlog -l compile.log  -f .svunit.f +define+SVUNIT_VERSION='"SVUnit v3.26"' ; vsim -sdfnoerror -c -lib work -do "run -all; quit" -l run.log testrunner
+Model Technology ModelSim SE-64 vlog 10.3 Compiler 2014.01 Jan  6 2014
+Start time: 22:19:35 on Aug 17,2019
+vlog -l compile.log -f .svunit.f +define+SVUNIT_VERSION="SVUnit v3.26" 
+-- Compiling package svunit_pkg
+-- Compiling module calculator
+-- Compiling module LIFO
+-- Compiling module calculator_unit_test
+-- Importing package svunit_pkg
+** Warning: ** while parsing file included at /autofs/fs1.ece/fs1.eecg.roman/xia/Develop/vlab/Hardware_Calculator/testbench/./LIFO_unit_test.sv(3)
+** at LIFO.v(9): (vlog-2275) 'LIFO' already exists and will be overwritten.
+-- Compiling module LIFO
+-- Compiling module LIFO_unit_test
+-- Compiling module __testsuite
+-- Compiling module testrunner
+
+Top level modules:
+	testrunner
+End time: 22:19:35 on Aug 17,2019
+Errors: 0, Warnings: 1
+Reading pref.tcl 
+
+# 10.3
+
+# vsim -do "run -all; quit" -l run.log -lib work -c -sdfnoerror testrunner 
+# Start time: 22:19:36 on Aug 17,2019
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.3 Jan  6 2014 Linux 4.9.0-0.bpo.9-amd64
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.svunit_pkg(fast)
+# Loading work.testrunner(fast)
+# run -all 
+# INFO:  [0][__ts]: Registering Unit Test Case calculator_ut
+# INFO:  [0][__ts]: Registering Unit Test Case LIFO_ut
+# INFO:  [0][testrunner]: Registering Test Suite __ts
+# INFO:  [0][__ts]: RUNNING
+# INFO:  [0][calculator_ut]: RUNNING
+# INFO:  [0][calculator_ut]: test_rst::RUNNING
+# INFO:  [120][calculator_ut]: test_rst::PASSED
+# INFO:  [120][calculator_ut]: test_push_single_operand::RUNNING
+# INFO:  [260][calculator_ut]: test_push_single_operand::PASSED
+# INFO:  [260][calculator_ut]: test_two_operand_operation::RUNNING
+# INFO:  [680][calculator_ut]: test_two_operand_operation::PASSED
+# INFO:  [680][calculator_ut]: test_three_operand_operation::RUNNING
+# INFO:  [1560][calculator_ut]: test_three_operand_operation::PASSED
+# INFO:  [1560][calculator_ut]: test_full_operand_operation_plus_routine::RUNNING
+# INFO:  [4880][calculator_ut]: test_full_operand_operation_plus_routine::PASSED
+# INFO:  [4880][calculator_ut]: test_full_operand_operation_substract_routine::RUNNING
+# INFO:  [8200][calculator_ut]: test_full_operand_operation_substract_routine::PASSED
+# INFO:  [8200][calculator_ut]: test_full_operand_operation_multiply_routine::RUNNING
+# INFO:  [11520][calculator_ut]: test_full_operand_operation_multiply_routine::PASSED
+# INFO:  [11520][calculator_ut]: test_full_operand_operation_divide_routine::RUNNING
+# INFO:  [14840][calculator_ut]: test_full_operand_operation_divide_routine::PASSED
+# INFO:  [14840][calculator_ut]: test_error_code::RUNNING
+# INFO:  [16360][calculator_ut]: test_error_code::PASSED
+# INFO:  [16360][LIFO_ut]: RUNNING
+# INFO:  [16360][LIFO_ut]: test_rst::RUNNING
+# INFO:  [16480][LIFO_ut]: test_rst::PASSED
+# INFO:  [16480][LIFO_ut]: test_write_read_single_data::RUNNING
+# INFO:  [16880][LIFO_ut]: test_write_read_single_data::PASSED
+# INFO:  [16880][LIFO_ut]: test_write_read_full_stack::RUNNING
+# INFO:  [17200][LIFO_ut]: test_write_read_full_stack::PASSED
+# INFO:  [17200][LIFO_ut]: test_error_code::RUNNING
+# INFO:  [17560][LIFO_ut]: test_error_code::PASSED
+# INFO:  [17560][calculator_ut]: PASSED (9 of 9 tests passing)
+# INFO:  [17560][LIFO_ut]: PASSED (4 of 4 tests passing)
+# 
+# INFO:  [17560][__ts]: PASSED (2 of 2 testcases passing)
+# 
+# INFO:  [17560][testrunner]: PASSED (1 of 1 suites passing) [SVUnit v3.26]
+# ** Note: $finish    : .testrunner.sv(40)
+#    Time: 1756 ns  Iteration: 1  Instance: /testrunner

@@ -1,0 +1,75 @@
+SVUNIT: Output File: ./.__testsuite.sv
+SVUNIT: Creating class __testsuite:
+SVUNIT: Creating instances for:
+SVUNIT:    calculator_unit_test
+SVUNIT:    LIFO_unit_test
+SVUNIT: Output File: testrunner.sv
+SVUNIT: Creating testrunner testrunner:
+SVUNIT: Creating instances for:
+SVUNIT:   __testsuite
+cd .; vlib work; vlog -l compile.log  -f .svunit.f +define+SVUNIT_VERSION='"SVUnit v3.26"' ; vsim -sdfnoerror -c -lib work -do "run -all; quit" -l run.log testrunner
+Model Technology ModelSim SE-64 vlog 10.3 Compiler 2014.01 Jan  6 2014
+Start time: 15:18:54 on Aug 17,2019
+vlog -l compile.log -f .svunit.f +define+SVUNIT_VERSION="SVUnit v3.26" 
+-- Compiling package svunit_pkg
+-- Compiling module calculator
+-- Compiling module LIFO
+-- Compiling module calculator_unit_test
+-- Importing package svunit_pkg
+** Warning: ** while parsing file included at /autofs/fs1.ece/fs1.eecg.roman/xia/Develop/vlab/Hardware_Calculator/testbench/./LIFO_unit_test.sv(3)
+** at LIFO.v(9): (vlog-2275) 'LIFO' already exists and will be overwritten.
+-- Compiling module LIFO
+-- Compiling module LIFO_unit_test
+-- Compiling module __testsuite
+-- Compiling module testrunner
+
+Top level modules:
+	testrunner
+End time: 15:18:54 on Aug 17,2019
+Errors: 0, Warnings: 1
+Reading pref.tcl 
+
+# 10.3
+
+# vsim -do "run -all; quit" -l run.log -lib work -c -sdfnoerror testrunner 
+# Start time: 15:18:56 on Aug 17,2019
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.3 Jan  6 2014 Linux 4.9.0-0.bpo.9-amd64
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.svunit_pkg(fast)
+# Loading work.testrunner(fast)
+# run -all 
+# INFO:  [0][__ts]: Registering Unit Test Case calculator_ut
+# INFO:  [0][__ts]: Registering Unit Test Case LIFO_ut
+# INFO:  [0][testrunner]: Registering Test Suite __ts
+# INFO:  [0][__ts]: RUNNING
+# INFO:  [0][calculator_ut]: RUNNING
+# INFO:  [0][calculator_ut]: test_rst::RUNNING
+#          0, 1, 0, 1, 0, 0,          0,          X, x,   x
+#          1, 0, 0, 1, 0, 0,          0,          X, x,   x
+#          2, 1, 1, 0, 0, 0,          0,          X, 0,   0
+#          3, 0, 1, 0, 0, 0,          0,          X, 0,   0
+#          4, 1, 1, 0, 0, 0,          0,          X, 0,   0
+#          5, 0, 1, 0, 0, 0,          0,          X, 0,   0
+#          6, 1, 1, 0, 0, 0,          0,          X, 0,   0
+#          7, 0, 1, 0, 0, 0,          0,          X, 0,   0
+#          8, 1, 1, 0, 0, 0,          0,          X, 0,   0
+#          9, 0, 1, 0, 0, 0,          0,          X, 0,   0
+#         10, 1, 0, 1, 0, 0,          0,          X, 0,   0
+#         11, 0, 0, 1, 0, 0,          0,          X, 0,   0
+# INFO:  [120][calculator_ut]: test_rst::PASSED
+# INFO:  [120][calculator_ut]: test_push_operand::RUNNING
+#         12, 1, 0, 1, 1, 0,         44,          X, 0,   0
+#         13, 0, 0, 1, 1, 0,         44,          X, 0,   0
+#         14, 1, 0, 1, 1, 0,         44,          X, 0,   0
+#  quit 
+# End time: 15:18:57 on Aug 17,2019
+# Errors: 0, Warnings: 0
