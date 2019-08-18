@@ -49,7 +49,7 @@ module calculator
 		.full(full)
 	);
 
-	reg [3:0] op_cnt; 	// calculate operations
+	reg [3:0] op_cnt; 	// count operations
 	reg [31:0] operand1; // store the first operand
 	reg [31:0] operand2; // store the second operand
 	reg [1:0] st_ctl; // stack control
@@ -103,10 +103,10 @@ module calculator
 	/////////////////////////////////////////////////
 	// algebraic calculation
 	/////////////////////////////////////////////////
-	reg [31:0] alg_result; // stack control
-	reg [2:0] alg_ctl; // stack control
-	reg       alg_release; // release stack 
-	reg [5:0] alg_state; // stack state
+	reg [31:0] alg_result; 
+	reg [2:0] alg_ctl; 
+	reg       alg_release; 
+	reg [5:0] alg_state; 
 	localparam alg0=6'b000001; // idle
 	localparam alg1=6'b000010; // +
 	localparam alg2=6'b000100; // -
@@ -198,7 +198,6 @@ module calculator
 		end
 	end
 
-	assign result_valid = (op_release | rdy )&(counter>0);
 
 	reg [2:0] op_state;
 	localparam  OP0=3'b001; // wait req
@@ -242,7 +241,7 @@ module calculator
 					if(st_state==st0 && alg_state==alg0) begin  // start read 2 operands if idle
 						st_ctl<=2;  // stack read 2 times operation
 					end else begin
-						if(st_state==st3 && alg_state==alg0) begin // finish read, start + algebraic operation
+						if(st_state==st3 && alg_state==alg0) begin // finish read, start algebraic operation
 							st_release<=1; // release stack for push result
 							st_ctl<=0;    // reset st_ctl
 							if(op_ctl==2) alg_ctl<=1;   // + operation
@@ -277,6 +276,7 @@ module calculator
 
 	// result always on the top of the stack
 	assign result = dat_o;
+	assign result_valid = (op_release | rdy )&(counter>0);
 
 	/////////////////////////////////////////////////
 	// error handle, error code block operations 
