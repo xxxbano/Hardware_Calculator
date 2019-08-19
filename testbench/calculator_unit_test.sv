@@ -300,15 +300,23 @@ module calculator_unit_test;
 	step(1);
 	`FAIL_UNLESS_EQUAL(error,0);
 
+	while(rdy!=1) step(1); 
+	req_valid=1; req_instr=5; req_operand=i;
+	step(1);
+	req_valid=0; 
+	`FAIL_UNLESS_EQUAL(error,3);
+	step(1);
+	`FAIL_UNLESS_EQUAL(error,0);
+
   `SVTEST_END
 
   `SVUNIT_TESTS_END
 
 //	initial begin
-//		$monitor("%d, %b, %b, %b, %b,%d, %d,%d,%b,%d,%x,%x,%x,%d,%d,%b,%d,%d,%d",$stime,clk, rst, rdy,req_valid,req_instr,req_operand,result,result_valid,my_calculator.op_ctl,my_calculator.op_state,my_calculator.st_state,my_calculator.alg_state,my_calculator.operand1,my_calculator.operand2,my_calculator.en,my_calculator.counter,my_calculator.dat_o,my_calculator.op_flag);
-//		//$monitor("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d,%d",$stime,my_calculator.clk, my_calculator.rst, my_calculator.rdy,my_calculator.req_valid,my_calculator.req_instr,my_calculator.req_operand,my_calculator.result,my_calculator.result_valid,my_calculator.error,my_calculator.counter);
+//		//$monitor("%d, %b, %b, %b, %b,%d, %d,%d,%b,%d,%x,%x,%x,%d,%d,%b,%d,%d,%d",$stime,clk, rst, rdy,req_valid,req_instr,req_operand,result,result_valid,my_calculator.op_ctl,my_calculator.op_state,my_calculator.st_state,my_calculator.alg_state,my_calculator.operand1,my_calculator.operand2,my_calculator.en,my_calculator.counter,my_calculator.dat_o,my_calculator.op_flag);
+//		$monitor("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d,%d",$stime,my_calculator.clk, my_calculator.rst, my_calculator.rdy,my_calculator.req_valid,my_calculator.req_instr,my_calculator.req_operand,my_calculator.result,my_calculator.result_valid,my_calculator.error,my_calculator.counter);
 //		//$monitor("%d, %b, %b, %b, %b",$stime,clk, rst, en,wr);
-//		$dumpfile("calculator.vcd");
+//		//$dumpfile("calculator.vcd");
 //		//$dumpvars(0,Flag_CrossDomain_unit_test);
 //		$dumpvars;
 //	end

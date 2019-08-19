@@ -9,7 +9,7 @@ SVUNIT: Creating instances for:
 SVUNIT:   __testsuite
 cd .; vlib work; vlog -l compile.log  -f .svunit.f +define+SVUNIT_VERSION='"SVUnit v3.26"' ; vsim -sdfnoerror -c -lib work -do "run -all; quit" -l run.log testrunner
 Model Technology ModelSim SE-64 vlog 10.3 Compiler 2014.01 Jan  6 2014
-Start time: 10:07:33 on Aug 19,2019
+Start time: 11:37:09 on Aug 19,2019
 vlog -l compile.log -f .svunit.f +define+SVUNIT_VERSION="SVUnit v3.26" 
 -- Compiling package svunit_pkg
 -- Compiling module calculator
@@ -22,14 +22,14 @@ vlog -l compile.log -f .svunit.f +define+SVUNIT_VERSION="SVUnit v3.26"
 
 Top level modules:
 	testrunner
-End time: 10:07:33 on Aug 19,2019
+End time: 11:37:10 on Aug 19,2019
 Errors: 0, Warnings: 0
 Reading pref.tcl 
 
 # 10.3
 
 # vsim -do "run -all; quit" -l run.log -lib work -c -sdfnoerror testrunner 
-# Start time: 10:07:35 on Aug 19,2019
+# Start time: 11:37:11 on Aug 19,2019
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 10.3 Jan  6 2014 Linux 4.9.0-0.bpo.9-amd64
 # //
@@ -66,21 +66,21 @@ Reading pref.tcl
 # INFO:  [1152][calculator_ut]: test_full_operand_operation_divide_routine::RUNNING
 # INFO:  [1484][calculator_ut]: test_full_operand_operation_divide_routine::PASSED
 # INFO:  [1484][calculator_ut]: test_error_code::RUNNING
-# INFO:  [1636][calculator_ut]: test_error_code::PASSED
-# INFO:  [1636][LIFO_ut]: RUNNING
-# INFO:  [1636][LIFO_ut]: test_rst::RUNNING
-# INFO:  [1648][LIFO_ut]: test_rst::PASSED
-# INFO:  [1648][LIFO_ut]: test_write_read_single_data::RUNNING
-# INFO:  [1688][LIFO_ut]: test_write_read_single_data::PASSED
-# INFO:  [1688][LIFO_ut]: test_write_read_full_stack::RUNNING
-# INFO:  [1720][LIFO_ut]: test_write_read_full_stack::PASSED
-# INFO:  [1720][LIFO_ut]: test_error_code::RUNNING
-# INFO:  [1756][LIFO_ut]: test_error_code::PASSED
-# INFO:  [1756][calculator_ut]: PASSED (9 of 9 tests passing)
-# INFO:  [1756][LIFO_ut]: PASSED (4 of 4 tests passing)
+# INFO:  [1640][calculator_ut]: test_error_code::PASSED
+# INFO:  [1640][LIFO_ut]: RUNNING
+# INFO:  [1640][LIFO_ut]: test_rst::RUNNING
+# INFO:  [1652][LIFO_ut]: test_rst::PASSED
+# INFO:  [1652][LIFO_ut]: test_write_read_single_data::RUNNING
+# INFO:  [1692][LIFO_ut]: test_write_read_single_data::PASSED
+# INFO:  [1692][LIFO_ut]: test_write_read_full_stack::RUNNING
+# INFO:  [1724][LIFO_ut]: test_write_read_full_stack::PASSED
+# INFO:  [1724][LIFO_ut]: test_error_code::RUNNING
+# INFO:  [1760][LIFO_ut]: test_error_code::PASSED
+# INFO:  [1760][calculator_ut]: PASSED (9 of 9 tests passing)
+# INFO:  [1760][LIFO_ut]: PASSED (4 of 4 tests passing)
 # 
-# INFO:  [1756][__ts]: PASSED (2 of 2 testcases passing)
+# INFO:  [1760][__ts]: PASSED (2 of 2 testcases passing)
 # 
-# INFO:  [1756][testrunner]: PASSED (1 of 1 suites passing) [SVUnit v3.26]
+# INFO:  [1760][testrunner]: PASSED (1 of 1 suites passing) [SVUnit v3.26]
 # ** Note: $finish    : .testrunner.sv(40)
-#    Time: 1756 ns  Iteration: 1  Instance: /testrunner
+#    Time: 1760 ns  Iteration: 1  Instance: /testrunner

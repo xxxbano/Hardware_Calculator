@@ -271,11 +271,13 @@ module calculator
 	// error handle, error code block operations 
 	// 1: no enough operand
 	// 2: write full stack
+	// 3: Unknown instr 
 	/////////////////////////////////////////////////
 
 	always @(*) begin
 		if(counter<2&&req_valid&&req_instr!=0) error = 1; 
 		else if(full&&req_valid&&req_instr==0) error = 2; 
+		else if(req_valid&&req_instr>4) error = 3; 
 		else error=0;
 	end
 	
