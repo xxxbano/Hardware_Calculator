@@ -4,7 +4,6 @@
 //
 // write in fall through, LIFO
 /////////////////////////////
-`timescale 1ns/100ps
 
 module LIFO
 	#(parameter AWF=3,  // Address Width Factor

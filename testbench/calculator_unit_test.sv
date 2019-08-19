@@ -1,7 +1,6 @@
 `include "svunit_defines.svh"
 `include "clk_and_reset.svh"
 `include "calculator.v"
-`include "LIFO.v"
 
 module calculator_unit_test;
   import svunit_pkg::svunit_testcase;

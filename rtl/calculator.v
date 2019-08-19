@@ -162,7 +162,7 @@ module calculator
 	// main control 
 	/////////////////////////////////////////////////
 	reg [3:0] op_ctl;
-	reg 			op_flag;
+	reg 			op_flag; // for enable algebra op
 	reg       op_release;
 	reg [31:0] dat_tmp;
 
@@ -172,29 +172,18 @@ module calculator
 			op_flag <= 0; 
 			rdy<=1;
 		end else begin
-			op_flag <= 0; 
-			if(op_ctl==1) op_ctl<= 0; 
+			op_flag <= 0;  						// disable alg op
+			if(op_ctl==1) op_ctl<= 0; // disable st op
 
-			// when rdy=1, store req_instr
 			if(req_valid&&rdy&&(error==0)) begin  
-				rdy<= 0;  // disable next instr
-				op_flag<= 1; 
-				case(req_instr)
-					3'b000: begin 
-						op_ctl<= 1; // to push data 
-						op_flag<= 0; 
-						dat_tmp<= req_operand; // store operand
-					end
-					3'b001: op_ctl<= 2; // + 
-					3'b010: op_ctl<= 3; // - 
-					3'b011: op_ctl<= 4; // * 
-					3'b100: op_ctl<= 5; // / 
-					default: op_ctl<= 0; 
-				endcase
+				rdy<= 0;  							// disable next instr
+				op_ctl <= req_instr+1;  // store instr
+				dat_tmp<= req_operand;  // store operand
+				// default st push, others enable alg op
+				if(req_instr==1||req_instr==2||req_instr==3||req_instr==4) op_flag<= 1; 
 			end else if(op_release==1) begin
 				rdy<=1;
 			end
-
 		end
 	end
 
@@ -213,15 +202,15 @@ module calculator
 			alg_ctl<=0;
 			op_release<=0;
 		end else begin
-			// when no operations, reset st_release, alg_release
+			// when no operations, reset st, alg, op_release
 			st_release<=0;
 			alg_release<=0;
 			op_release<=0;
 
 			case(op_state)
 				OP0: begin // check which operation
-					if(op_ctl==1) op_state <= OP1;
-					else if(op_flag==1) op_state <= OP2;
+					if(op_ctl==1) op_state <= OP1; // go to st push
+					else if(op_flag==1) op_state <= OP2; // go to alg op 
 				end
 				OP1: begin  // push data
 					if(st_state==st0) begin  // start push if idle
